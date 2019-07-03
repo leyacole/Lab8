@@ -63,7 +63,17 @@ public class InfoArray {
 				System.out.println(i + 1 +". " + names[i]);
 			}
 			
-			index = scnr.nextInt() - 1;
+			do {
+				try {
+					index = scnr.nextInt() - 1;
+					isValid = true;
+				}catch (IndexOutOfBoundsException ex) {
+					scnr.nextLine();
+					System.out.println("Invalid number entered. Enter 1 - 10");
+					isValid = false;
+				}
+				
+			}while(!isValid);
 				
 					while(index < 0 || index >= 10) {
 					System.out.println("Invalid number entered. Try again with 1 - 10");
